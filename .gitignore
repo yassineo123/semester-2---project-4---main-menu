@@ -1,0 +1,22 @@
+#ik heb dit bestand gemaakt met behulp van een generator, dus er staan al wat dingen in die ik misschien niet nodig heb.
+
+*.glb
+
+# Common
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.tmp
+*.swp
+*~
+
+# IDE and editor generated files
+.idea/
+*.sublime-*
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+./node_modules/
