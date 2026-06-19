@@ -122,9 +122,9 @@ animate();
 
 
 //--------------------------------------------------------
-//Audio die niet wil werken.
+//Audio.
 const windAudio = new Audio('./assets/wind.mp3');
 windAudio.loop = true;
-windAudio.volume = 0.9;
+windAudio.volume = 1;
 windAudio.autoplay = true;
 
