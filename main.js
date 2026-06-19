@@ -59,7 +59,7 @@ new RGBELoader().load("./assets/sky.hdr", (texture) => {
 // Camera aanmaak.
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
 // Positioneert de camera. x, z en y assen
-camera.position.set(-1, 0, 12);
+camera.position.set(2, 0, 12);
 
 
 // Licht kan niet worden geïmporteerd van blender, dus het moet via code worden toegevoegd.
@@ -120,23 +120,11 @@ function animate() {
 
 animate();
 
-// Achtergrond sound: Ik heb geen idee hoe ik de audio gelijk laat afspelen zonder een gebruikersactie.
+
+//--------------------------------------------------------
+//Audio die niet wil werken.
 const windAudio = new Audio('./assets/wind.mp3');
 windAudio.loop = true;
-windAudio.volume = 0.3;
-
-
-function startWindAudio() {
-	windAudio.play().catch(() => {});
-		document.removeEventListener('click', startWindAudio);
-		document.removeEventListener('keydown', startWindAudio);
-}
-
-	windAudio.play().catch(() => {
-		document.addEventListener('click', startWindAudio, { once: true });
-		ocument.addEventListener('keydown', startWindAudio, { once: true });
-});
-
-
-
+windAudio.volume = 0.9;
+windAudio.autoplay = true;
 

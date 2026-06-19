@@ -10,7 +10,7 @@ body {
     overflow: hidden; /* geen scrollbars */
     position: relative;
     opacity: 0;
-    transition: opacity 700ms ease; /*ik wou een fade-in effect doen om de pop in te vermijden, maar dat werkt niet heel goed*/
+    transition: opacity 3000ms ease; /*ik wou een fade-in effect doen om de pop in te vermijden, maar dat werkt niet heel goed*/
     
 }
 body.is-loaded {
@@ -47,11 +47,16 @@ button {
     border: none;
     color: white;
     padding: 0;
-    font: inherit;
+    font-family: 'ArabDances';
     font-size: 16px;
     cursor: pointer;
     min-width: 0;
     appearance: none;
+}
+/*font geïmporteerd van Dafont.com*/
+@font-face { 
+    font-family: 'ArabDances';
+    src: url('./assets/ArabDances.ttf') format('truetype');
 }
 
 button:hover {
