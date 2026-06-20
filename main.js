@@ -65,13 +65,13 @@ camera.position.set(2, 0, 12);
 // Licht kan niet worden geïmporteerd van blender, dus het moet via code worden toegevoegd.
 
 // Licht toevoegen
-scene.add(new THREE.AmbientLight(0xffffff, 1.0));
+scene.add(new THREE.AmbientLight(0xffffff, 0.1));
 // richtinglicht.
 const sun = new THREE.DirectionalLight(0xffffff, 3.1);
 // schuine positie.
-sun.position.set(4, 6, 3);
-// lich in scene.
+sun.position.set(10000, 5000, -10000);
 scene.add(sun);
+
 
 //--------------------------------------------------------
 // loader.
@@ -114,6 +114,8 @@ window.addEventListener("resize", onResize);
 
 // meet de tijd per frame.
 const clock = new THREE.Clock();
+const sunStartPosition = sun.position.clone(); // Sla de startpositie van de zon op, zodat het vanaf het start punt rond draait
+const sunRotationAxis = new THREE.Vector3(1, 0, 0);// hoeveel de positie wordt veranderd per seconde.
 
 // Start een loop voor de animatie.
 function animate() {
@@ -121,6 +123,7 @@ function animate() {
 	requestAnimationFrame(animate);
 
 	const delta = clock.getDelta();
+	sun.position.copy(sunStartPosition).applyAxisAngle(sunRotationAxis, clock.elapsedTime * 0.2);
 	scene.backgroundRotation.y += 0.05 * delta;
 	scene.environmentRotation.y += 0.05 * delta;
 
