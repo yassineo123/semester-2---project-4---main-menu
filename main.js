@@ -114,7 +114,6 @@ window.addEventListener("resize", onResize);
 
 // meet de tijd per frame.
 const clock = new THREE.Clock();
-const skyRotationSpeed = 0.02;
 
 // Start een loop voor de animatie.
 function animate() {
@@ -122,8 +121,8 @@ function animate() {
 	requestAnimationFrame(animate);
 
 	const delta = clock.getDelta();
-	scene.backgroundRotation.y += skyRotationSpeed * delta;
-	scene.environmentRotation.y += skyRotationSpeed * delta;
+	scene.backgroundRotation.y += 0.05 * delta;
+	scene.environmentRotation.y += 0.05 * delta;
 
 	renderer.render(scene, camera);
 }
