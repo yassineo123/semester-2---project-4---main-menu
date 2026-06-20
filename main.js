@@ -111,15 +111,24 @@ function onResize() {
 // resize-events van het browservenster.
 window.addEventListener("resize", onResize);
 
+
+// meet de tijd per frame.
+const clock = new THREE.Clock();
+const skyRotationSpeed = 0.02;
+
 // Start een loop voor de animatie.
 function animate() {
 	// Vraagt de browser om deze functie op het volgende frame opnieuw te draaien.
 	requestAnimationFrame(animate);
+
+	const delta = clock.getDelta();
+	scene.backgroundRotation.y += skyRotationSpeed * delta;
+	scene.environmentRotation.y += skyRotationSpeed * delta;
+
 	renderer.render(scene, camera);
 }
 
 animate();
-
 
 //--------------------------------------------------------
 //Audio.
